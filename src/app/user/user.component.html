@@ -1,0 +1,33 @@
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    
+    <div class="form-group">
+        <label>User Name</label>
+        <input name="UserName" #UserName="ngModel" [(ngModel)]="service.formData.UserName"
+            class="form-control form-control-lg" placeholder="User Name" required
+            [class.invalid]="UserName.invalid && UserName.touched">
+    </div>
+    <div class="form-group">
+        <label>Login Name</label>
+        <input name="LoginName" #LoginName="ngModel" [(ngModel)]="service.formData.LoginName"
+            class="form-control form-control-lg" placeholder="Login Name" required 
+             [class.invalid]="LoginName.invalid && LoginName.touched">
+    </div>
+    <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="Password" #Password="ngModel" [(ngModel)]="service.formData.Password"
+                class="form-control form-control-lg" placeholder="Password" required 
+                [class.invalid]="Password.invalid && Password.touched">
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input name="Email" #Email="ngModel" [(ngModel)]="service.formData.Email"
+                class="form-control form-control-lg" placeholder="Email" required 
+                [class.invalid]="Email.invalid && Email.touched">
+        </div>
+
+    </div>
+    <div class="form-group">
+        <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">Submit</button>
+    </div>
+</form>
+
