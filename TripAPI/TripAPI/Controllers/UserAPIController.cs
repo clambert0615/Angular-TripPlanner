@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,11 +19,11 @@ namespace TripAPI.Controllers
         {
             _context = Context;
         }
-        //endpoint api/userapi/username
-        [HttpGet("{username}")]
-        public async Task<ActionResult<UserMaster>> GetUser(string userName)
+        //endpoint api/userapi/loginname
+        [HttpGet("{loginName}")]
+        public async Task<ActionResult<UserMaster>> GetUser(string loginName)
         {
-            var user = await _context.UserMaster.FirstAsync(x=> x.UserName == userName);
+            var user = await _context.UserMaster.FirstAsync(x=> x.LoginName == loginName);
             if (user == null)
             {
                 return NotFound();
@@ -41,7 +41,7 @@ namespace TripAPI.Controllers
             {
                 _context.UserMaster.Add(newUser);
                 await _context.SaveChangesAsync();
-                return CreatedAtAction(nameof(GetUser), new { userName = newUser.UserName }, newUser);
+                return CreatedAtAction(nameof(GetUser), new { loginName = newUser.LoginName }, newUser);
             }
 
             else
@@ -49,7 +49,7 @@ namespace TripAPI.Controllers
                 return BadRequest();
             }
         }
-        //Update api/userapi/{username}
+        //Update api/userapi/{loginname}
         [HttpPut]
         public async Task<ActionResult> UpdateUser(UserMaster updatedUser)
         {
@@ -64,11 +64,11 @@ namespace TripAPI.Controllers
                 return NoContent();
             }
         }
-        //Delete api/userapi/{username}
-        [HttpDelete("{username}")]
-        public async Task<ActionResult> DeleteUser(string userName)
+        //Delete api/userapi/{loginname}
+        [HttpDelete("{loginName}")]
+        public async Task<ActionResult> DeleteUser(string loginName)
         {
-            var user = await _context.UserMaster.FirstAsync(x => x.UserName == userName);
+            var user = await _context.UserMaster.FirstAsync(x => x.LoginName == loginName);
             if (user == null)
             {
                 return NotFound();

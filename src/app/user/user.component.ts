@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserserviceService } from './../userservice.service';
 import { NgForm } from '@angular/forms';
-
+import {Router } from '@angular/router';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -9,7 +9,8 @@ import { NgForm } from '@angular/forms';
 })
 export class UserComponent implements OnInit {
 
-  constructor(public service: UserserviceService) { }
+  
+  constructor(public service: UserserviceService, public Router: Router) { }
 
   ngOnInit() {
     this.resetForm();
@@ -27,6 +28,7 @@ export class UserComponent implements OnInit {
     
     onsubmit(form: NgForm) {
       this.insertRecord(form);
+      // add in where to navigagte to next
     }
 
     insertRecord(form: NgForm){
