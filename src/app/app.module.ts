@@ -10,12 +10,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserserviceService } from './userservice.service';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     LoginComponent,
+    HomepageComponent,
    
   ],
   imports: [

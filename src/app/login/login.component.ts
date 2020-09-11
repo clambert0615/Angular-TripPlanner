@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserserviceService } from './../userservice.service';
 import { NgForm, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,8 @@ export class LoginComponent implements OnInit {
   LoginName: any;
   Password: any;
   LoginForm: FormGroup;
+  showMsg: boolean = false;
+
   ngOnInit() {
     this.resetForm();
     this.LoginForm = new FormGroup ({
@@ -26,19 +29,26 @@ export class LoginComponent implements OnInit {
     if (form != null) {
       form.form.reset();
     }
-  
+
   }
 
   login() {
-    console.log("Hi");
-    
+
     this.service.getUser(this.LoginForm.controls['LoginName'].value).subscribe((data: any[]) => {
       this.data = data;
-      if(this.data.Password === this.LoginForm.controls['Password'].value)
+      if (this.data.Password === this.LoginForm.controls['Password'].value)
       {
-        //do something
+        this.Router.navigate(['homepage']);
       }
-      console.log(data);
-    });
+      else
+      {
+        this.showMsg = true;
+      }
+
+    },
+    err => {if (HttpErrorResponse)
+    {
+      this.showMsg = true;
+    }});
   }
 }

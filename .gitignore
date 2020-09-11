@@ -45,6 +45,7 @@ testem.log
 .DS_Store
 Thumbs.db
 
+environment.ts
 bin/
 obj/
 .vs/

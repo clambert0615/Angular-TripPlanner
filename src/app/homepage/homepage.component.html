@@ -1,0 +1,13 @@
+<h1 style="text-align:center">Welcome to the Trip Planner</h1>
+<br>
+<br>
+<form [formGroup]="LocationForm" (ngSubmit)="getLocation()" >
+<label for="zip">Zip Code (5 digits): </label>
+<input type="number" id="zip" name="zip" pattern="\d{5}" formControlName="zip" placeholder="Zip Code" ngModel required><br>
+OR:<br>
+<label for="city">City</label>
+<input type="text" id="text" name="text" formControlName="city" placeholder="City" ngModel required>
+<label for="state">State (2 Letters): </label>
+<input type="text" id="state" name="state" maxlength="2" formControlName="state" placeholder="State" ngModel require><br>
+<input type="submit" value="submit">
+</form>
