@@ -26,7 +26,7 @@ export class HomepageComponent implements OnInit {
     if (form != null) {
       form.form.reset();
     }
-
   }
-
+  
+  getLocation()
 }
