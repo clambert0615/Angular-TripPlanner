@@ -7,7 +7,10 @@ import {Login } from './login.model';
   providedIn: 'root'
 })
 export class UserserviceService {
-  constructor(private http: HttpClient) { }
+  isloggedin: boolean;
+  constructor(private http: HttpClient) { 
+    this.isloggedin = false;
+  }
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'

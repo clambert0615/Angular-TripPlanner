@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
       if (this.data.Password === this.LoginForm.controls['Password'].value)
       {
         this.Router.navigate(['homepage']);
+        this.service.isloggedin = true;
       }
       else
       {

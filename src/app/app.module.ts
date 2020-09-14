@@ -11,6 +11,7 @@ import { UserserviceService } from './userservice.service';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { OverviewComponent } from './overview/overview.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { HomepageComponent } from './homepage/homepage.component';
     UserComponent,
     LoginComponent,
     HomepageComponent,
+    OverviewComponent,
    
   ],
   imports: [
