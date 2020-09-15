@@ -7,12 +7,12 @@ import { EnvironmentKeys} from './../environments/environmentkeys';
 })
 export class ZipService {
   zipAPIKey = EnvironmentKeys.zipJSKey;
-  readonly zipBase = 'http://www.zipcodeapi.com/rest/';
+  private readonly zipBase = 'http://www.zipcodeapi.com/rest';
   constructor(private httpclient: HttpClient) { }
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-  
+
     }),
   };
   getZip(city, state)

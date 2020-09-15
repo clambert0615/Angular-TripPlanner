@@ -1,1 +1,12 @@
-<p>overview works!</p>
+<h1>Location Information for {{city}}, {{state}}</h1>
+<br>
+<h3>Covid Cases</h3>
+<div *ngIf="data !== undefined">
+    <ul *ngFor="let county of data.counties">
+        <li *ngFor="let historicData of county.historicData">
+            Date: {{historicData.date | date: 'shortDate'}} <br>
+            Positive Count (to date): {{historicData.positiveCt}}<br>
+            Death Count (to date): {{historicData.deathCt}} <br>
+        </li>
+    </ul>
+</div>

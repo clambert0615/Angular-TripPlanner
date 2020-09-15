@@ -1,7 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
@@ -12,6 +10,8 @@ import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { OverviewComponent } from './overview/overview.component';
+import { CovidService } from './covid.service';
+import { ZipService } from './zip.service';
 
 @NgModule({
   declarations: [
@@ -19,8 +19,7 @@ import { OverviewComponent } from './overview/overview.component';
     UserComponent,
     LoginComponent,
     HomepageComponent,
-    OverviewComponent,
-   
+    OverviewComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +29,7 @@ import { OverviewComponent } from './overview/overview.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [UserserviceService],
+  providers: [UserserviceService, CovidService, ZipService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
