@@ -12,6 +12,10 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { OverviewComponent } from './overview/overview.component';
 import { CovidService } from './covid.service';
 import { ZipService } from './zip.service';
+import { PlacesService } from './places.service';
+import { RestaurantsComponent } from './restaurants/restaurants.component';
+import { LodgingComponent } from './lodging/lodging.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,10 @@ import { ZipService } from './zip.service';
     UserComponent,
     LoginComponent,
     HomepageComponent,
-    OverviewComponent
+    OverviewComponent,
+    RestaurantsComponent,
+    LodgingComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +36,7 @@ import { ZipService } from './zip.service';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [UserserviceService, CovidService, ZipService],
+  providers: [UserserviceService, CovidService, ZipService, PlacesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

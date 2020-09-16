@@ -5,6 +5,7 @@ import { City } from '../city.model';
 import { CovidService } from '../covid.service';
 import { Covid } from '../covid.model';
 import { Zip } from '../zip.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-overview',
@@ -27,9 +28,8 @@ export class OverviewComponent implements OnInit {
   public  counties: any[];
   public histricData: any[];
 
-  constructor(public zipService: ZipService,
-              public zipDataService: ZipdataService,
-              public covidService: CovidService) { }
+  constructor(public zipService: ZipService, public zipDataService: ZipdataService,
+              public covidService: CovidService, public router: Router) { }
 
   ngOnInit(): void {
     this.zip = this.zipDataService.zip;
@@ -50,4 +50,8 @@ export class OverviewComponent implements OnInit {
 
     });
   }
+ getNavigation(link)
+ {
+   this.router.navigate([link]);
+ }
 }

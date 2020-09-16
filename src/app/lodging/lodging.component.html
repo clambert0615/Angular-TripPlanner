@@ -1,0 +1,20 @@
+<h1 style="text-align:center;">Lodging</h1>
+<br>
+<table *ngIf="data !== undefined" style="width:100%">
+<thead>
+    <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Rating</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let lodging of data.results" >
+    <td><a [routerLink]="['/details', lodging.place_id]"> {{lodging.name}}</a></td>
+    <td>{{lodging.vicinity}}</td>
+    <td>{{lodging.rating}}</td>
+    </tr>
+
+</tbody>
+
+</table>

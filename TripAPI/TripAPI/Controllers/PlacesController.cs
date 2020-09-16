@@ -28,7 +28,7 @@ namespace TripAPI.Controllers
       return client;
     }
     [HttpGet("restaurants/{latitude}/{longitude}")]
-    public async Task<Eating> GetRestaurants([FromRoute] float latitude, float longitude)
+    public async Task<Eating> GetRestaurants([FromRoute] float latitude, [FromRoute] float longitude)
     {
       HttpClient client = GetHttpClient();
       HttpResponseMessage response = await client.GetAsync($"nearbysearch/json?type=restaurant&key={APIKey}&location={latitude},{longitude}&radius=15000");
@@ -38,7 +38,7 @@ namespace TripAPI.Controllers
       return restaurant;
     }
     [HttpGet("attractions/{latitude}/{longitude}")]
-    public async Task<Attractions> GetAttractions([FromRoute] float latitude, float longitude)
+    public async Task<Attractions> GetAttractions([FromRoute] float latitude, [FromRoute] float longitude)
     {
       HttpClient client = GetHttpClient();
       HttpResponseMessage response = await client.GetAsync($"nearbysearch/json?type=tourist_attraction&key={APIKey}&location={latitude},{longitude}&radius=15000");
@@ -48,7 +48,7 @@ namespace TripAPI.Controllers
       return attraction;
     }
     [HttpGet("lodging/{latitude}/{longitude}")]
-    public async Task<Lodging> GetLodging([FromRoute] float latitude, float longitude)
+    public async Task<Lodging> GetLodging([FromRoute] float latitude, [FromRoute] float longitude)
     {
       HttpClient client = GetHttpClient();
       HttpResponseMessage response = await client.GetAsync($"nearbysearch/json?type=lodging&key={APIKey}&location={latitude},{longitude}&radius=15000");
@@ -57,8 +57,8 @@ namespace TripAPI.Controllers
       Lodging lodging = JsonConvert.DeserializeObject<Lodging>(lodgingjson);
       return lodging;
     }
-    [HttpGet("{id}")]
-    public async Task<PlaceDetails> GetDetails(string id)
+    [HttpGet("details/{id}")]
+    public async Task<PlaceDetails> GetDetails([FromRoute] string id)
     {
       HttpClient client = GetHttpClient();
       HttpResponseMessage response = await client.GetAsync($"details/json?place_id={id}&fields=name,formatted_address,photo,place_id,vicinity,website,rating,review&key={APIKey}");
@@ -67,8 +67,8 @@ namespace TripAPI.Controllers
       details.apiKey = APIKey;
       return details;
     }
-    [HttpGet("{pagetoken}")]
-    public async Task<Places> MorePlaces(string pagetoken)
+    [HttpGet("more/{pagetoken}")]
+    public async Task<Places> MorePlaces([FromRoute] string pagetoken)
     {
       HttpClient client = GetHttpClient();
       HttpResponseMessage response = await client.GetAsync($"nearbysearch/json?pagetoken={pagetoken}&key={APIKey}");

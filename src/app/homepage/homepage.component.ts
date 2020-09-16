@@ -6,7 +6,7 @@ import { ZipService } from '../zip.service';
 import { Zip } from '../zip.model';
 import { City } from '../city.model';
 import { ZipdataService } from '../zipdata.service';
- 
+
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -37,14 +37,14 @@ export class HomepageComponent implements OnInit {
       form.form.reset();
      }
    }
-  
+
   getLocation()
   {
       // tslint:disable-next-line: max-line-length
-      if (this.LocationForm.controls['City'].value !== null && this.LocationForm.controls['State'].value !== null && this.LocationForm.controls['Zip'].value === '')
+      if (this.LocationForm.controls.City.value !== null && this.LocationForm.controls.State.value !== null && this.LocationForm.controls.Zip.value === '')
       {
       // tslint:disable-next-line: max-line-length
-      this.zipService.getZip(this.LocationForm.controls['City'].value, this.LocationForm.controls['State'].value).subscribe((data: Zip) => {
+      this.zipService.getZip(this.LocationForm.controls.City.value, this.LocationForm.controls.State.value).subscribe((data: Zip) => {
         this.data = data;
         this.zip = data.zip_codes[0];
         this.zipDataService.zip = this.zip;
@@ -56,15 +56,15 @@ export class HomepageComponent implements OnInit {
 
  }
       // tslint:disable-next-line: max-line-length
-      else if(this.LocationForm.controls['Zip'].value !== null && this.LocationForm.controls['City'].value === '' && this.LocationForm.controls['State'].value === '') 
+      else if (this.LocationForm.controls.Zip.value !== null && this.LocationForm.controls.City.value === '' && this.LocationForm.controls.State.value === '')
       {
-        this.zipService.getCity(this.LocationForm.controls['Zip'].value).subscribe((data2: City) => {
+        this.zipService.getCity(this.LocationForm.controls.Zip.value).subscribe((data2: City) => {
           this.data2 = data2;
           // this.city = data2.city;
           // this.state = data2.state;
-          // this.lat = data2.lat;
-          // this.lng = data2.lng;
-          this.zipDataService.zip = this.LocationForm.controls['Zip'].value;
+          this.zipDataService.lat = data2.lat;
+          this.zipDataService.lng = data2.lng;
+          this.zipDataService.zip = this.LocationForm.controls.Zip.value;
           // this.zipDataService.city = this.city;
           // this.zipDataService.state = this.state;
 
@@ -74,6 +74,6 @@ export class HomepageComponent implements OnInit {
       }
       else
       {
-        console.log("error");
+        console.log('error');
       }
 }}

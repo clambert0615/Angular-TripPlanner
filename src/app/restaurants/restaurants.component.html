@@ -1,0 +1,20 @@
+<h1 style="text-align:center;">Restaurants</h1>
+<br>
+<table *ngIf="data !== undefined" style="width:100%">
+<thead>
+    <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Rating</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let restaurant of data.results" >
+    <td><a [routerLink]="['/details', restaurant.place_id]"> {{restaurant.name}}</a></td>
+    <td>{{restaurant.vicinity}}</td>
+    <td>{{restaurant.rating}}</td>
+    </tr>
+
+</tbody>
+
+</table>
