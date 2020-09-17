@@ -16,6 +16,8 @@ import { PlacesService } from './places.service';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { LodgingComponent } from './lodging/lodging.component';
 import { DetailsComponent } from './details/details.component';
+import { AttractionsComponent } from './attractions/attractions.component';
+import { MoreComponent } from './more/more.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { DetailsComponent } from './details/details.component';
     OverviewComponent,
     RestaurantsComponent,
     LodgingComponent,
-    DetailsComponent
+    DetailsComponent,
+    AttractionsComponent,
+    MoreComponent
   ],
   imports: [
     BrowserModule,

@@ -26,7 +26,7 @@ export class Lodging{
 }
 export class PlaceDetails{
     html_attributions: any;
-    results: Result[];
+    result: Result;
     status: string;
     apiKey: string;
 }

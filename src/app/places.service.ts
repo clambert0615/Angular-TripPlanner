@@ -26,6 +26,6 @@ getDetails(id){
   return this.httpClient.get(`${this.rootURL}/places/details/${id}`);
 }
 getMorePLaces(pagetoken){
-  return this.httpClient.get(`${this.rootURL}/places//more/${pagetoken}`);
+  return this.httpClient.get(`${this.rootURL}/places/more?pagetoken=${pagetoken}`);
 }
 }

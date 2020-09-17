@@ -1,1 +1,21 @@
 <h1 style="text-align:center;color:rebeccapurple">Details for {{data.result.name}}</h1>
+<br>
+<p>Address: {{data.result.vicinity}} <br />
+Website: <a href="{{data.result.website}}">Click here!</a></p>
+
+<h3>User Rating: {{data.result.rating}}</h3>
+<div *ngIf="data?.result.reviews?.length > 0">
+    <li *ngFor="let review of data.result.reviews" >
+    
+            Author Name: {{review.author_name}}<br />
+            Rating: {{review.rating}}<br />
+            Review: {{review.text}}<br />
+       
+   </li>
+   </div>
+<div *ngIf="data?.result.photos?.length > 0">
+    <h3>Photos:</h3>
+    <li *ngFor="let photo of data.result.photos">
+        <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference={{photo.photo_reference}}&key={{data.apiKey}}" />
+    </li>
+</div>

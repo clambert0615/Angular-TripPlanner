@@ -61,16 +61,16 @@ namespace TripAPI.Controllers
     public async Task<PlaceDetails> GetDetails([FromRoute] string id)
     {
       HttpClient client = GetHttpClient();
-      HttpResponseMessage response = await client.GetAsync($"details/json?place_id={id}&fields=name,formatted_address,photo,place_id,vicinity,website,rating,review&key={APIKey}");
+       HttpResponseMessage response = await client.GetAsync($"details/json?place_id={id}&fields=name,formatted_address,photo,place_id,vicinity,website,rating,review&key={APIKey}");
       var detailsjson = await response.Content.ReadAsStringAsync();
       PlaceDetails details = JsonConvert.DeserializeObject<PlaceDetails>(detailsjson);
       details.apiKey = APIKey;
       return details;
     }
-    [HttpGet("more/{pagetoken}")]
-    public async Task<Places> MorePlaces([FromRoute] string pagetoken)
+    [HttpGet("more")]
+    public async Task<Places> MorePlaces([FromQuery] string pagetoken)
     {
-      HttpClient client = GetHttpClient();
+        HttpClient client = GetHttpClient();
       HttpResponseMessage response = await client.GetAsync($"nearbysearch/json?pagetoken={pagetoken}&key={APIKey}");
       //install-package Microsoft.AspNet.WebAPI.Client
       var placesjson = await response.Content.ReadAsStringAsync();

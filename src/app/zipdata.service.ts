@@ -12,5 +12,6 @@ public city: City;
 public state: any;
 public lng: any;
 public lat: any;
+public data: any;
   constructor() { }
 }

@@ -11,11 +11,13 @@ import { ZipdataService } from '../zipdata.service';
 })
 export class RestaurantsComponent implements OnInit {
 
-  constructor(public placesService: PlacesService, router: Router, public zipdataService: ZipdataService) { }
+  constructor(public placesService: PlacesService, public router: Router, public zipdataService: ZipdataService) { }
   lat: any;
   lng: any;
   data: Eating;
   place_id: any;
+  pagetoken: any;
+  data2: Eating;
   ngOnInit(): void {
     this.lat = this.zipdataService.lat;
     this.lng = this.zipdataService.lng;
@@ -25,7 +27,15 @@ export class RestaurantsComponent implements OnInit {
 getRestaurants(lat, lng){
  this.placesService.getRestaurants(lat, lng).subscribe((data: Eating) => {
      this.data = data;
-
+     this.pagetoken = data.next_page_token;
  });
 }
+ getMore(){
+  this.placesService.getMorePLaces(this.pagetoken).subscribe((data2: Eating) => {
+    this.data2 = data2;
+    this.zipdataService.data = data2;
+    this.router.navigate(['more']);
+  });
+ }
 }
+

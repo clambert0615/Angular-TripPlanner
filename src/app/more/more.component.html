@@ -1,0 +1,21 @@
+
+<table *ngIf="data !== undefined" style="width:100%">
+<thead>
+    <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Rating</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let result of data.results" >
+    <td><a [routerLink]="['/details', result.place_id]"> {{result.name}}</a></td>
+    <td>{{result.vicinity}}</td>
+    <td>{{result.rating}}</td>
+    </tr>
+
+</tbody>
+
+</table>
+<br>
+<button type="button" (click)="getMore()">Next</button>

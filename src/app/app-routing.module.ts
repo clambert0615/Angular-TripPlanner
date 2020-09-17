@@ -9,6 +9,8 @@ import { OverviewComponent } from './overview/overview.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { LodgingComponent } from './lodging/lodging.component';
 import { DetailsComponent } from './details/details.component';
+import { AttractionsComponent } from './attractions/attractions.component';
+import { MoreComponent } from './more/more.component';
 
 const routes: Routes = [
   { path: 'user', component: UserComponent },
@@ -18,6 +20,8 @@ const routes: Routes = [
   { path: 'overview', component: OverviewComponent},
   { path: 'restaurants', component: RestaurantsComponent},
   { path: 'lodging', component: LodgingComponent},
+  { path: 'attractions', component: AttractionsComponent},
+  { path: 'more', component: MoreComponent},
   { path: 'details/:id', component: DetailsComponent},
   { path: '', component: HomepageComponent},
 ];

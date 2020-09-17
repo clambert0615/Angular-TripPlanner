@@ -1,0 +1,20 @@
+<h1 style="text-align:center;">Attractions</h1>
+<br>
+<table *ngIf="data !== undefined" style="width:100%">
+<thead>
+    <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Rating</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let attraction of data.results" >
+    <td><a [routerLink]="['/details', attraction.place_id]"> {{attraction.name}}</a></td>
+    <td>{{attraction.vicinity}}</td>
+    <td>{{attraction.rating}}</td>
+    </tr>
+
+</tbody>
+
+</table>
