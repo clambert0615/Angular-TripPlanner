@@ -14,7 +14,8 @@ export class AttractionsComponent implements OnInit {
   lat: any;
   lng: any;
   place_id: any;
-  constructor(public placesService: PlacesService, router: Router, public zipdataService: ZipdataService) { }
+  pagetoken: any;
+  constructor(public placesService: PlacesService, public router: Router, public zipdataService: ZipdataService) { }
 
   ngOnInit(): void {
     this.lat = this.zipdataService.lat;
@@ -23,7 +24,15 @@ export class AttractionsComponent implements OnInit {
   }
 getAttractions(lat, lng){
   return this.placesService.getAttractions(lat, lng).subscribe((data: Attractions) => {
-    this.data = data;
+         this.data = data;
+         this.pagetoken = data.next_page_token;
   });
 }
+getMore(){
+  this.placesService.getMorePLaces(this.pagetoken).subscribe((data: Attractions) => {
+    this.data = data;
+    this.zipdataService.data = data;
+    this.router.navigate(['more']);
+  });
+ }
 }

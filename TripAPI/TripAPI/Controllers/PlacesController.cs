@@ -16,6 +16,7 @@ namespace TripAPI.Controllers
   public class PlacesController : ControllerBase
   {
     private readonly string APIKey;
+    
     public PlacesController(IConfiguration configuration)
     {
       APIKey = configuration.GetSection("ApiKeys")["Google"];
@@ -79,19 +80,19 @@ namespace TripAPI.Controllers
     }
 
 
-    //public async Task<List<PlaceDetails>> GetFavoritesList(List<Favorites> fl)
-    //{
-    //  List<PlaceDetails> pdlist = new List<PlaceDetails>();
-    //  HttpClient client = GetHttpClient();
-    //  foreach (Favorites f in fl)
-    //  {
-    //    HttpResponseMessage response = await client.GetAsync($"details/json?place_id={f.Destination}&fields=name,formatted_address,photo,place_id,vicinity,website,rating,review&key={APIKey}");
-    //    var detailsjson = await response.Content.ReadAsStringAsync();
-    //    PlaceDetails details = JsonConvert.DeserializeObject<PlaceDetails>(detailsjson);
-    //    pdlist.Add(details);
-    //  }
-    //  return pdlist;
-    //}
+    public async Task<List<PlaceDetails>> GetFavoritesList(List<Favorites> fl)
+    {
+      List<PlaceDetails> pdlist = new List<PlaceDetails>();
+      HttpClient client = GetHttpClient();
+      foreach (Favorites f in fl)
+      {
+        HttpResponseMessage response = await client.GetAsync($"details/json?place_id={f.Places}&fields=name,formatted_address,photo,place_id,vicinity,website,rating,review&key={APIKey}");
+        var detailsjson = await response.Content.ReadAsStringAsync();
+        PlaceDetails details = JsonConvert.DeserializeObject<PlaceDetails>(detailsjson);
+        pdlist.Add(details);
+      }
+      return pdlist;
+    }
   }
 }
 

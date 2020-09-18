@@ -13,6 +13,8 @@ export class LodgingComponent implements OnInit {
    lat: any;
    lng: any;
    data: Lodging;
+   place_id: any;
+   pagetoken: any;
   constructor(public placesService: PlacesService, public zipdataService: ZipdataService,
     public router: Router) { }
 
@@ -25,6 +27,14 @@ export class LodgingComponent implements OnInit {
  {
    this.placesService.getLodging(lat, lng).subscribe((data: Lodging) => {
      this.data = data;
+     this.pagetoken = data.next_page_token;
    });
+ }
+ getMore(){
+  this.placesService.getMorePLaces(this.pagetoken).subscribe((data: Lodging) => {
+    this.data = data;
+    this.zipdataService.data = data;
+    this.router.navigate(['more']);
+  });
  }
 }

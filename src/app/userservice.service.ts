@@ -8,7 +8,8 @@ import {Login } from './login.model';
 })
 export class UserserviceService {
   isloggedin: boolean;
-  constructor(private http: HttpClient) { 
+  UserId: number;
+  constructor(private http: HttpClient) {
     this.isloggedin = false;
   }
   httpOptions = {
@@ -34,6 +35,11 @@ readonly rootURL = 'https://localhost:44381/api';
   }
   deleteUser(loginname){
     return this.http.delete(`${this.rootURL}/userapi/${loginname}`);
+  }
+
+  postFavorite(places, userId)
+  {
+    return this.http.post(`${this.rootURL}/userapi/favorites`, {Places: places, UserId: userId});
   }
 }
 
