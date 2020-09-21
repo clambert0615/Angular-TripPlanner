@@ -33,15 +33,15 @@ export class OverviewComponent implements OnInit {
 
   ngOnInit(): void {
     this.zip = this.zipDataService.zip;
-    console.log(this.zip);
-
+   
     this.zipService.getCity(this.zip).subscribe((data2: City) => {
       this.data2 = data2;
       this.city = data2.city;
       this.state = data2.state;
       this.lat = data2.lat;
       this.lng = data2.lng;
-
+      this.zipDataService.lat = this.lat;
+      this.zipDataService.lng = this.lng;
     });
 
     this.covidService.getCovid(this.zip).subscribe((data: Covid) => {

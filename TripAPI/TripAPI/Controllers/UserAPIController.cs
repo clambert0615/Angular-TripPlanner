@@ -107,5 +107,20 @@ namespace TripAPI.Controllers
         return BadRequest();
       }
     }
+    [HttpDelete("favorites/{userId}/{place}")]
+    public IActionResult DeleteFavorite([FromRoute]int userId, [FromRoute]string place)
+    {
+      Favorites found = _context.Favorites.First(x => (x.Places == place) && x.UserId == userId);
+      if (found != null)
+      {
+        _context.Favorites.Remove(found);
+        _context.SaveChanges();
+        return NoContent();
+      }
+      else
+      {
+        return NotFound();
+      }
+    }
   }
   }

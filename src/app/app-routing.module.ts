@@ -11,6 +11,7 @@ import { LodgingComponent } from './lodging/lodging.component';
 import { DetailsComponent } from './details/details.component';
 import { AttractionsComponent } from './attractions/attractions.component';
 import { MoreComponent } from './more/more.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 const routes: Routes = [
   { path: 'user', component: UserComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'lodging', component: LodgingComponent},
   { path: 'attractions', component: AttractionsComponent},
   { path: 'more', component: MoreComponent},
+  { path: 'favorites', component: FavoritesComponent},
   { path: 'details/:id', component: DetailsComponent},
   { path: '', component: HomepageComponent},
 ];

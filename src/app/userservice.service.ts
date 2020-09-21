@@ -37,9 +37,15 @@ readonly rootURL = 'https://localhost:44381/api';
     return this.http.delete(`${this.rootURL}/userapi/${loginname}`);
   }
 
-  postFavorite(places, userId)
-  {
+  postFavorite(places, userId)  {
     return this.http.post(`${this.rootURL}/userapi/favorites`, {Places: places, UserId: userId});
   }
+  getFavorites(userId){
+    return this.http.get(`${this.rootURL}/userapi/favorites/${userId}`);
+  }
+  deleteFavorite(userId, place) {
+    return this. http.delete(`${this.rootURL}/userapi/favorites/${userId}/${place}`);
+  }
+  
 }
 

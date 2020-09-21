@@ -3,6 +3,8 @@ import { Routes, RouterModule, Router } from '@angular/router';
 import { PlacesService } from './../places.service';
 import { Eating, Places } from './../places.model';
 import { ZipdataService } from '../zipdata.service';
+import { City } from '../city.model';
+import { ZipService } from '../zip.service';
 
 @Component({
   selector: 'app-restaurants',
@@ -11,17 +13,21 @@ import { ZipdataService } from '../zipdata.service';
 })
 export class RestaurantsComponent implements OnInit {
 
-  constructor(public placesService: PlacesService, public router: Router, public zipdataService: ZipdataService) { }
+  constructor(public placesService: PlacesService, public router: Router,
+    public zipService: ZipService, public zipdataService: ZipdataService) { }
   lat: any;
   lng: any;
+  zip: any;
   data: Eating;
+  data3: City;
   place_id: any;
   pagetoken: any;
   data2: Eating;
   ngOnInit(): void {
+    this.zip = this.zipdataService.zip;
     this.lat = this.zipdataService.lat;
     this.lng = this.zipdataService.lng;
-
+    console.log(this.lat, this.lng);
     this.getRestaurants(this.lat, this.lng);
   }
 getRestaurants(lat, lng){

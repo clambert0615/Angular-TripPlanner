@@ -1,0 +1,22 @@
+<h1 style="text-align:center;">Favorites</h1>
+<br>
+<table *ngIf="data !== undefined" style="width:100%">
+<thead>
+    <tr>
+        <th style="text-align: left">Name</th>
+        <th style="text-align: left">Address</th>
+        <th style="text-align: left">Rating</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let favorite of data" >
+    <td><a [routerLink]="['/details', favorite.result.place_id]"> {{favorite.result.name}}</a></td>
+    <td>{{favorite.result.vicinity}}</td>
+    <td>{{favorite.result.rating}}</td>
+    <td><button (click)="deleteFavorite(favorite.result.place_id)">Delete</button> </td>
+    </tr>
+
+</tbody>
+
+</table>
+<br>

@@ -1,7 +1,12 @@
 <h1 style="text-align:center;color:rebeccapurple">Details for {{data.result.name}}</h1>
 <br>
+<div *ngIf="user !== undefined">
 <h5>Click on the button to add {{data.result.name}} to your Favorite List!!</h5>
 <button type="button" (click)="addFavorite()">Add Favorite</button>
+</div>
+<div *ngIf="user === undefined">
+    <p>Log in to save as a favorite.</p>
+</div>
 <br>
 <p>Address: {{data.result.vicinity}} <br />
 Website: <a href="{{data.result.website}}">Click here!</a></p>

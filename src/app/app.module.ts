@@ -18,6 +18,7 @@ import { LodgingComponent } from './lodging/lodging.component';
 import { DetailsComponent } from './details/details.component';
 import { AttractionsComponent } from './attractions/attractions.component';
 import { MoreComponent } from './more/more.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MoreComponent } from './more/more.component';
     LodgingComponent,
     DetailsComponent,
     AttractionsComponent,
-    MoreComponent
+    MoreComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,

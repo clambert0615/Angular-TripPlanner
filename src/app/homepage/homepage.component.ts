@@ -24,8 +24,10 @@ export class HomepageComponent implements OnInit {
   state: any;
   lat: any;
   lng: any;
+  user: any;
    ngOnInit() {
      this.resetForm();
+     this.user = this.service.UserId;
      this.LocationForm = new FormGroup ({
        Zip: new FormControl(''),
        City: new FormControl(''),
@@ -48,6 +50,8 @@ export class HomepageComponent implements OnInit {
         this.data = data;
         this.zip = data.zip_codes[0];
         this.zipDataService.zip = this.zip;
+        this.service.UserId = this.user;
+        console.log(this.zip);
         // this.zipDataService.city = this.LocationForm.controls['City'].value;
         // this.zipDataService.state = this.LocationForm.controls['State'].value;
         this.router.navigate(['overview']);
@@ -65,6 +69,8 @@ export class HomepageComponent implements OnInit {
           this.zipDataService.lat = data2.lat;
           this.zipDataService.lng = data2.lng;
           this.zipDataService.zip = this.LocationForm.controls.Zip.value;
+          this.service.UserId = this.user;
+          console.log(this.zipDataService.lat, this.zipDataService.lng);
           // this.zipDataService.city = this.city;
           // this.zipDataService.state = this.state;
 

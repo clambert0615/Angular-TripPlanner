@@ -11,7 +11,8 @@ export class UserComponent implements OnInit {
 
   
   constructor(public service: UserserviceService, public Router: Router) { }
-
+  userId: any;
+  data: any;
   ngOnInit() {
     this.resetForm();
   }
@@ -28,16 +29,20 @@ export class UserComponent implements OnInit {
     
     onsubmit(form: NgForm) {
       this.insertRecord(form);
-      // add in where to navigagte to next
+      this.service.isloggedin = true;
+
     }
 
     insertRecord(form: NgForm){
-      this.service.postUser().subscribe(
-        res => {
-          this.resetForm(form);
+      this.service.postUser().subscribe((data: any) => {
+        this.data = data;
+        this.service.UserId = data.UserId;
+        console.log(this.service.UserId);
+        this.resetForm(form);
+        this.Router.navigate(['homepage']);
         },
         err => {console.log(err); }
-      )
+      );
     }
 
   }

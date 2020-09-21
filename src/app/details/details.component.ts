@@ -18,6 +18,7 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.place_id = this.actRoute.snapshot.params.id;
+    this.user = this.userService.UserId;
     console.log(this.place_id);
     this.getDetails(this.place_id);
   }
@@ -34,4 +35,5 @@ addFavorite(){
 
   });
 }
+
 }

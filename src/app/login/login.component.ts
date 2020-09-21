@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
         this.Router.navigate(['homepage']);
         this.service.isloggedin = true;
         this.service.UserId = this.data.UserId;
-        console.log(this.service.UserId);
+        console.log('this.service.UserId = ' + this.service.UserId);
       }
       else
       {
