@@ -1,0 +1,8 @@
+div{
+    padding-left: 30px;
+    padding-right: 900px;
+}
+.btn.btn-info.btn-lg.btn-block{
+    background-color: #e99bde;
+    color: black !important;
+}

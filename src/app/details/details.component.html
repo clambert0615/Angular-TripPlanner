@@ -11,7 +11,9 @@
 <p>Address: {{data.result.vicinity}} <br />
 Website: <a href="{{data.result.website}}">Click here!</a></p>
 
-<h3>User Rating: {{data.result.rating}}</h3>
+<h3>Overall User Rating: {{data.result.rating}}</h3>
+<br>
+<h3>User Reviews</h3>
 <div *ngIf="data?.result.reviews?.length > 0">
     <li *ngFor="let review of data.result.reviews" >
     
@@ -21,9 +23,13 @@ Website: <a href="{{data.result.website}}">Click here!</a></p>
        
    </li>
    </div>
-<div *ngIf="data?.result.photos?.length > 0">
+<div *ngIf="data?.result.photos?.length > 0" class="row">
     <h3>Photos:</h3>
-    <li *ngFor="let photo of data.result.photos">
+    <div *ngFor="let photo of data.result.photos" class="column">
         <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference={{photo.photo_reference}}&key={{data.apiKey}}" />
-    </li>
+    </div>
+</div>
+<br>
+<div>
+<button onclick="window.history.back()">Go Back</button>
 </div>

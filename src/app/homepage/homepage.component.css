@@ -1,0 +1,18 @@
+form{
+    padding: 30px;
+}
+p.a, p.b, h3 {
+    font-size: 150%;
+    padding-left: 30px;
+    padding-right:30px;
+}
+.image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%
+}
+.button {
+    background-color: #e99bde;
+    color: black !important;
+}

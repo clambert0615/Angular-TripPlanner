@@ -1,0 +1,14 @@
+.navbar{
+    background-color: #e99bde;
+}
+
+.nav.navbar-nav.navbar-right li a {
+    color: black !important;
+}
+
+.nav.navbar-nav li a{
+    color: black !important;
+}
+.navbar-brand{
+    color: black !important;
+}

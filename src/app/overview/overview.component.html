@@ -2,8 +2,8 @@
 <br>
 <h3>Covid Cases</h3>
 <div *ngIf="data !== undefined">
-    <ul *ngFor="let county of data.counties">
-        <li *ngFor="let historicData of county.historicData">
+    <ul *ngFor="let county of data.counties" class="row">
+        <li *ngFor="let historicData of county.historicData" class="column">
             Date: {{historicData.date | date: 'shortDate'}} <br>
             Positive Count (to date): {{historicData.positiveCt}}<br>
             Death Count (to date): {{historicData.deathCt}} <br>
@@ -12,16 +12,28 @@
 </div>
 <h3>Restaurants in {{city}}</h3>
 <p>During your trip you are sure to get hungry!  Check out the local cusine here:</p>
-<button type="button" (click)="getNavigation('restaurants')">Restaurants</button>
+<div>
+<button class="button" (click)="getNavigation('restaurants')">Restaurants</button>
+<img src="assets/images/restaurant.jpg" class="image" height="200"><br>
+</div>
 <br>
 <h3>Lodging in {{city}}</h3>
 <p>After an exhausting day of activities, you will surely need a place to rest your head for 
-    the night.  Browse local lodging choices here:
-</p>
-<button type="button" (click)="getNavigation('lodging')">Lodging</button>
+    the night.  Browse local lodging choices here: </p>
+<div>
+<button class="button" (click)="getNavigation('lodging')">Lodging</button>
+<img src="assets/images/hotel.jpeg" class="image" height="200"><br>
+</div>
 <br>
 <h3>Attractions in {{city}}</h3>
 <p>The funnest part of any trip is seeing all of the lcoal attractions!  Start planning
     all of your fun activities here:
 </p>
-<button type="button" (click)="getNavigation('attractions')">Attractions</button>
+<div>
+<button class="button" (click)="getNavigation('attractions')">Attractions</button>
+<img src="assets/images/museum.jpg" class="image" height="200"><br>
+</div>
+<br>
+<div>
+<button onclick="window.history.back()">Go Back</button>
+</div>

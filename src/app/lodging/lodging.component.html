@@ -1,5 +1,6 @@
 <h1 style="text-align:center;">Lodging</h1>
 <br>
+<div style="overflow-x:auto;">
 <table *ngIf="data !== undefined" style="width:100%">
 <thead>
     <tr>
@@ -18,5 +19,7 @@
 </tbody>
 
 </table>
+</div>
 <br>
 <button type="button" (click)="getMore()">Next</button>
+<button onclick="window.history.back()">Go Back</button>

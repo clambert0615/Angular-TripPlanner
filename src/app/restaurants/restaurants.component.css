@@ -9,3 +9,7 @@ th, td {
     background-color: #e99bde;
     color: white;
   }
+  button {
+    background-color: #e99bde;
+    color: black !important;
+}

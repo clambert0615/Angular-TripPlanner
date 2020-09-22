@@ -1,0 +1,41 @@
+.column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+    
+  }
+  
+ 
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  p {
+    font-size: 150%;
+    padding-left: 30px;
+    padding-right:30px;
+}
+h3{
+    font-size: 200%;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+h1{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+div{
+    padding-left: 30px;
+}
+.image {
+    display: block;
+    margin-left: 300px;
+    margin-right: auto;
+    width: 30%
+}
+button {
+    background-color: #e99bde;
+    font-size: 16px;
+    color: black !important;
+}

@@ -1,0 +1,22 @@
+button {
+    background-color: #e99bde;
+    font-size: 18px;
+    color: black !important;
+}
+p, h3, div, h1, h5 {
+    padding-left: 30px;
+    padding-right:30px;
+}
+.column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+    
+  }
+  
+ 
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }

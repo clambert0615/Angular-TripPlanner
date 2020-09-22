@@ -7,6 +7,7 @@ import { Covid } from '../covid.model';
 import { Zip } from '../zip.model';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
@@ -54,4 +55,5 @@ export class OverviewComponent implements OnInit {
  {
    this.router.navigate([link]);
  }
+ 
 }

@@ -1,14 +1,20 @@
 <h1 style="text-align:center">Welcome to the Trip Planner</h1>
 <br>
-<br>
 
+<p class="a">Plan your next vacation now.  Find local restaurants, accomodations, and attractions.
+    Plus, the latest Covid numbers will be provided.  We want your next vacation to be a safe one!</p>
+<p class="b">In addition, you can log in or create an account to save your trip preferences for future reference! </p>
+<br>
+<img src="assets/images/vacation.jpg" class="image" height="200"><br>
+<br>
+<h3>Enter your vacation destination:</h3>
 <form [formGroup]="LocationForm" (ngSubmit)="getLocation()" >
 <label for="Zip">Zip Code (5 digits): </label>
-<input type="text" id="Zip" name="Zip" maxlength="5" formControlName="Zip" placeholder="Zip Code"><br>
-OR:<br>
-<label for="City">City</label>
-<input type="text" id="City" name="City" formControlName="City" placeholder="City">
+<input type="text" id="Zip" name="Zip" maxlength="5" formControlName="Zip" placeholder="Zip Code"><br><br>
+OR:<br><br>
+<label for="City">City:</label>
+<input type="text" id="City" name="City" formControlName="City" placeholder="City"><br>
 <label for="state">State (2 Letters): </label>
 <input type="text" id="State" name="State" maxlength="2" formControlName="State" placeholder="State"><br>
-<input type="submit" value="submit">
+<input type="submit" value="submit" class="button">
 </form>
