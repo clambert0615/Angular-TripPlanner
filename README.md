@@ -22,6 +22,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ![image](https://user-images.githubusercontent.com/60634063/93928446-56608600-fce8-11ea-9914-bf63eb37a817.png)
 
+![image](https://user-images.githubusercontent.com/60634063/93932411-25834f80-fcee-11ea-95f6-c7f6087234f1.png)
 
 ![image](https://user-images.githubusercontent.com/60634063/93928979-24035880-fce9-11ea-8408-4677063a2389.png)
 
