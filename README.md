@@ -1,6 +1,6 @@
 # Angulartrip
 
-This project allows users to research trip information.  The user can enter a location by zip code or city/state and see the latest covid casess for that location. The user can also search for hotels, attractions, and lodging.  The user can view details on each place and if they like it, they can save it to their favorite's list.
+This project allows users to research trip information.  The user can enter a location by zip code or city/state and see the latest covid cases for that location. The user can also search for hotels, attractions, and lodging.  The user can view details on each place and if they like it, they can save it to their favorite's list.
 
 ## Development server
 
